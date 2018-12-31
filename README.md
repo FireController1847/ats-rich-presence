@@ -5,31 +5,31 @@ To launch, run `node src/index.js` after running `npm install` (YARN PREFERRED `
 
 ## Cities Available
 These are the different cities that are currently added and/or not added to the application (basically, the ones with the checkmark will show up on RP when you visit them).
-### California
+### ✔ California
 - ✔ Bakersfield
-- ❌ Barstow
-- ❌ Carlsbad
-- ❌ El Centro
-- ❌ Eureka
+- ✔ Barstow
+- ✔ Carlsbad
+- ✔ El Centro
+- ✔ Eureka
 - ✔ Fresno
-- ❌ Hornbrook
-- ❌ Huron
+- ✔ Hornbrook
+- ✔ Huron
 - ✔ Los Angeles
-- ❌ Oakdale
-- ❌ Oakland
-- ❌ Oxnard
-- ❌ Redding
+- ✔ Oakdale
+- ✔ Oakland
+- ✔ Oxnard
+- ✔ Redding
 - ✔ Sacramento
 - ✔ San Diego
 - ✔ San Francisco
-- ❌ San Rafael
-- ❌ Santa Cruz
-- ❌ Santa Maria
-- ❌ Stockton
-- ❌ Truckee
-- ❌ Ukiah
+- ✔ San Rafael
+- ✔ Santa Cruz
+- ✔ Santa Maria
+- ✔ Stockton
+- ✔ Truckee
+- ✔ Ukiah
 
-### Navada
+### ❌ Navada
 - ✔ Carson City
 - ✔ Elko
 - ❌ Ely
@@ -41,7 +41,7 @@ These are the different cities that are currently added and/or not added to the 
 - ❌ Tonopah
 - ❌ Winnemucca
 
-### Arizona
+### ❌ Arizona
 - ❌ Camp Verde
 - ❌ Clifton
 - ❌ Ehrenberg
@@ -59,7 +59,7 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Tucson
 - ❌ Yuma
 
-### New Mexico
+### ❌ New Mexico
 - ❌ Albuquerque
 - ❌ Almogordo
 - ❌ Artesia
@@ -75,7 +75,7 @@ These are the different cities that are currently added and/or not added to the 
 - ❌ Socorro
 - ❌ Tucumcari
 
-### Oregon
+### ❌ Oregon
 - ❌ Astoria
 - ❌ Bend
 - ❌ Burns
