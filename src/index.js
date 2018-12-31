@@ -7,106 +7,109 @@ const snekfetch = require("snekfetch");
  */
 
 /**
- * MASSIVE TODO: ADD MANY MORE CITIES
+ * MASSIVE TODO: ADD MORE CITIES
  */
-
 class Client {
   constructor() {
     this.et = new ETCarsClient();
     this.rpc = new DiscordRPC.Client({ transport: "ipc" });
 
-    this.mapURL = "https://api.truckyapp.com/v2/map/%game/resolve?x=%xpos&y=%zpos";
+    this.truckyMapApi = "https://api.truckyapp.com/v2/map/%game/resolve?x=%xpos&y=%zpos";
+    this.lastData = null;
+    this.minUpdateRate = 2;
+    this.minStateUpdateRate = 5;
+    this.updating = false;
+    this.activity = null;
+    this.state = null;
 
-    // Used for storing data recieved from ET.
-    this.data = null;
+    this.timeSinceLastUpdate = 0;
+    this.timeSinceLastStateUpdate = 0;
+    this.timeSinceActivityChange = null;
 
-    // Update rate in seconds.
-    // Note: This is a required ratelimit, so it's hard coded.
-    //       The way I've seen certain others do it is abusing the API.
-    //       This does not.
-    this.updateRate = 5;
-    this.lastUpdate = 0;
-
-    // "Timestamp Toggle"
-    // Used when the game launches and the user starts "freeroaming"
-    // Or when a user just got off of a job (resets to 0).
-    this.timeSinceActivityChange;
-    this.activity;
-
-    // The Current RPC Activity
-    this.rpcActivity;
-    this.rpcChange = 0;
+    this.rpcStateMark = 0;
   }
 
   init() {
-    console.log("Initialization Triggered.");
+    console.log("Connecting...");
+
     this.et.on("data", data => {
-      console.log("DATA");
+      console.log("Data Recieved");
       this.data = data;
-      if (Date.now() - this.lastUpdate >= this.updateRate * 1000) this.rpcUpdate();
+      if (Date.now() - this.timeSinceLastUpdate >= this.minUpdateRate * 1000 && !this.updating) this.update();
     });
+
     this.et.on("connect", () => {
-      console.log("Connected to ETCars!");
-      // Possibly add support for more than ATS in the future?
+      console.log("ETCars Connected");
+
+      // Hard code the ATS client for now.
       this.rpc.login({ clientId: "529091171633594368" }).then(() => {
-        console.log("RPC Client Connected!");
+        console.log("RPC Connected");
         this.rpc.connected = true;
-        this.timeSinceActivityChange = Math.floor(new Date() / 1000);
+        this.timeSinceActivityChange = new Date();
       }).catch(e => {
         // TODO: Popup to show errored...
         console.error(e);
         process.exit();
       });
     });
+
     this.et.on("error", e => {
       if (e.errorMessage && e.errorMessage.toString().includes("not running")) {
-        console.log("No Connection!");
         if (!this.rpc.connected) return;
-        return this.rpcDisconnect()
+        console.log("ATS Not Running, Disconnecting...");
+        return this.disconnect();
       }
       console.error(e);
-      this.rpcDisconnect();
+      return this.disconnect();
     });
 
     this.et.connect();
   }
 
-  async rpcUpdate() {
-    console.log("Updating presence...");
-    this.lastUpdate = Date.now();
+  disconnect() {
     if (!this.rpc.connected) return;
-    // await this.rpcBuild();
-    const activity = await this.rpcBuild();
-
-    // Inaccurate? Is it worth loading all of lodash to check?
-    // if (JSON.stringify(activity) == JSON.stringify(this.rpcActivity)) {
-    //   // Prevent Unessecary Updates
-    //   return console.log("Activity Unchanged.");
-    // }
-
-    this.rpcActivity = activity;
-    this.rpc.setActivity(activity);
-    return console.log("Activity Changed.");
+    this.rpc.destroy();
+    this.rpc.connected = false;
+    console.log("RPC Disconnected");
   }
 
-  async rpcBuild() {
+  async update() {
+    console.log("Running Presence Update...");
+    if (!this.timeSinceLastUpdate) this.timeSinceLastUpdate = Date.now();
+
+    if (!this.rpc.connected) return;
+    const activity = await this.build();
+    this.updating = true;
+    await this.rpc.setActivity(activity);
+    this.updating = false;
+    this.timeSinceLastUpdate = Date.now();
+    console.log("Presence Updated.");
+  }
+
+  async build() {
     /** @type {Presence} */
     const activity = {};
-    
-    if (!this.data.telemetry) return {};
-    const game = this.data.telemetry.game;
-    const truck = this.data.telemetry.truck;
-    const navigation = this.data.telemetry.navigation;
-    const job = this.data.telemetry.job;
 
-    // Fetch Nearest Location
-    if (truck.worldPlacement.x && truck.worldPlacement.y) {
-      const res = await snekfetch.get(
-        this.mapURL.replace("%game", "ats")
-          .replace("%xpos", truck.worldPlacement.x)
-          .replace("%zpos", truck.worldPlacement.z)
+    if (!this.data.telemetry) return {};
+    const data = {
+      game: this.data.telemetry.game,
+      truck: this.data.telemetry.truck,
+      navigation: this.data.telemetry.navigation,
+      job: this.data.telemetry.job
+    };
+
+    // Handle Images
+    if (data.truck.worldPlacement.x && data.truck.worldPlacement.z) {
+      // Fetch the nearest location.
+      const res = await snekfetch.get(this.truckyMapApi
+        .replace("%game", "ats")
+        .replace("%xpos", data.truck.worldPlacement.x)
+        .replace("%zpos", data.truck.worldPlacement.z)
       );
-      if (res.body && res.body.response) {
+      if (!res.body || !res.body.response) {
+        activity.largeImageKey = "truck";
+        activity.largeImageText = "Unable To Fetch Location";
+      } else {
         const locData = res.body.response;
         if (locData.distance > 0) {
           activity.largeImageKey = locData.poi.country.toLowerCase().replace(/ /g, "_");
@@ -115,46 +118,51 @@ class Client {
           activity.largeImageKey = locData.poi.realName.toLowerCase().replace(/ /g, "_");
           activity.largeImageText = "In " + locData.poi.realName;
         }
-
-        // console.log(JSON.stringify(res.body.response, null, 2));
       }
     } else {
       activity.largeImageKey = "truck";
-      activity.largeImageText = "Title Screen";
+      activity.largeImageText = "Menu Screen";
     }
-    if (!this.timeSinceActivityChange) this.timeSinceActivityChange = Math.floor(new Date() / 1000);
-    if (job.onJob) {
+
+    // Handle Details & State
+    if (!this.timeSinceActivityChange) timeSinceActivityChange = new Date();
+    if (data.job.onJob) {
       if (this.activity != "job") {
-        this.timeSinceActivityChange = Math.floor(new Date() / 1000);
+        this.timeSinceActivityChange = new Date();
         this.activity = "job";
       }
-      activity.details = "🚚 " + job.sourceCity + " -> " + job.destinationCity;
-      
-      if (this.rpcChange > 1) this.rpcChange = 0;
-      if (this.rpcChange == 0) activity.state = "🛣️ " + (navigation.distance / 1609.344).toFixed(0) + " Miles Remaining";
-      if (this.rpcChange == 1) activity.state = "📦 Travelling With " + job.cargo;
-      // TODO: Add More Options
-      this.rpcChange++;
 
-      activity.startTimestamp = this.timeSinceActivityChange;
+      activity.details = "🚚 " + data.job.sourceCity + " -> " + data.job.destinationCity;
+
+      if (Date.now() - this.timeSinceLastStateUpdate >= this.minStateUpdateRate * 1000) {
+        this.timeSinceLastStateUpdate = Date.now();
+
+        if (this.rpcStateMark > 2) this.rpcStateMark = 0;
+        if (this.rpcStateMark == 0) this.state = "🛣️ " + (data.navigation.distance / 1609.344).toFixed(0) + " Miles Remaining";
+        if (this.rpcStateMark == 1) this.state = "📦 Carrying " + data.job.cargo;
+        if (this.rpcStateMark == 2) this.state = "💨 Going " + Math.ceil(data.truck.speed * 2.237) + " MPH";
+        this.rpcStateMark++;
+      }
+
+      activity.state = this.state;
     } else {
       if (this.activity != "roam") {
-        this.timeSinceActivityChange = Math.floor(new Date() / 1000);
+        this.timeSinceActivityChange = new Date();
         this.activity = "roam";
       }
+      
       activity.details = "🚚 Freeroaming";
       activity.state = "🛣️ Livin' the Life";
-      activity.startTimestamp = this.timeSinceActivityChange;
     }
-    if (game.paused) activity.state = "⏸ Paused";
-    return activity;
-  }
+    activity.startTimestamp = Math.floor(this.timeSinceActivityChange / 1000);
 
-  rpcDisconnect() {
-    if (!this.rpc.connected) return;
-    this.rpc.destroy();
-    this.rpc.connected = false;
-    console.log("RPC Client Destroyed!");
+    // Overrides
+    if (data.game.paused) {
+      activity.state = "⏸ Paused";
+      this.timeSinceActivityChange.setMilliseconds(this.timeSinceActivityChange.getMilliseconds() + (Date.now() - this.timeSinceLastUpdate));
+    }
+
+    return activity;
   }
 }
 

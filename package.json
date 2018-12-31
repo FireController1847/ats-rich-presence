@@ -19,6 +19,7 @@
   "dependencies": {
     "discord-rpc": "^3.0.1",
     "etcars-node-client": "^1.0.4",
+    "ora": "^3.0.0",
     "snekfetch": "^4.0.4"
   }
 }
