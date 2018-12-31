@@ -27,6 +27,7 @@ SetupIconFile=..\icon.ico
 Compression=lzma
 SolidCompression=yes
 AppMutex={#MyAppExeName}
+PrivilegesRequired=admin
 
 [Types]
 Name: full; Description: "Full installation";
@@ -41,7 +42,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "StartMenuEntry"; Description: "Start {#MyAppName} when Windows starts (Recommended)"; GroupDescription: "Windows Startup";
+Name: "startentry"; Description: "Start {#MyAppName} when Windows starts (Recommended)"; GroupDescription: "Windows Startup";
 Name: "InstallETCARS"; Description: "Install ETCARS after installation"; GroupDescription: "Other Tasks"; Components: etcars;
 
 [Files]
@@ -52,10 +53,15 @@ Source: ".\ETCARSx64.exe"; DestDir: "{tmp}"; Flags: ignoreversion;
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{commonstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: startentry
+
+[Registry]
+Root: HKLM; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "{#MyAppName}"; ValueData: """{app}\{#MyAppExeName}"""; Flags: uninsdeletevalue
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 Filename: "{tmp}\ETCARSx64.exe"; Description: "Install ETCARS"; Flags: postinstall; Components: etcars; Tasks: InstallETCARS;
+
 
 [UninstallRun]
 Filename: "{cmd}"; Parameters: "/C ""taskkill /im {#MyAppExeName} /f /t";
