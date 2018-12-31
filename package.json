@@ -1,14 +1,24 @@
 {
-  "name": "etcarstesting",
+  "name": "ats-rich-presence",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Provides Rich Presence for American Trucking Simulator",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/FireController1847/ats-rich-presence.git"
+  },
+  "author": "FireController#1847",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/FireController1847/ats-rich-presence/issues"
+  },
+  "homepage": "https://gitlab.com/FireController1847/ats-rich-presence#README",
   "dependencies": {
-    "etcars-node-client": "^1.0.4"
+    "discord-rpc": "^3.0.1",
+    "etcars-node-client": "^1.0.4",
+    "snekfetch": "^4.0.4"
   }
 }
