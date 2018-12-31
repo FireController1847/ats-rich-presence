@@ -82,3 +82,4 @@ typings/
 # Testing Files
 # I don't use tests to actually test, I use it for testing development.
 test/
+release/

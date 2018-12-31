@@ -1,6 +1,21 @@
 const DiscordRPC = require("discord-rpc");
 const ETCarsClient = require("etcars-node-client");
-const snekfetch = require("snekfetch");
+const fetch = require("node-fetch");
+const log = require("node-file-logger");
+const argv = require("minimist")(process.argv.slice(2));
+const fs = require("fs");
+if (!fs.existsSync("./logs/")) fs.mkdirSync("./logs/");
+if (fs.existsSync("./logs/Output.log")) fs.writeFileSync("./logs/Output.log", "");
+log.SetUserOptions({
+  folderPath: "./logs/",
+  dateBasedFileNaming: false,
+  fileName: "Output",
+  fileNameExtension: ".log",
+  dateFormat: "YYYY/MM/DD",
+  timeFormat: "h:mm:ss A",
+  logLevel: (argv.D || argv.debug ? "debug" : "prod"),
+  onlyFileLogging: false
+});
 
 /**
  * @typedef {import("discord-rpc").Presence} Presence
@@ -27,39 +42,46 @@ class Client {
     this.timeSinceActivityChange = null;
 
     this.rpcStateMark = 0;
+    this.firstRun = true;
   }
 
   init() {
-    console.log("Connecting...");
+    log.Info("Connecting...");
 
     this.et.on("data", data => {
-      console.log("Data Recieved");
+      log.Debug("Data Recieved");
       this.data = data;
       if (Date.now() - this.timeSinceLastUpdate >= this.minUpdateRate * 1000 && !this.updating) this.update();
     });
 
     this.et.on("connect", () => {
-      console.log("ETCars Connected");
+      log.Info("ETCars Connected");
+      this.firstRun = false;
 
       // Hard code the ATS client for now.
       this.rpc.login({ clientId: "529091171633594368" }).then(() => {
-        console.log("RPC Connected");
+        log.Info("RPC Connected");
         this.rpc.connected = true;
         this.timeSinceActivityChange = new Date();
       }).catch(e => {
         // TODO: Popup to show errored...
-        console.error(e);
+        log.Fatal(e);
         process.exit();
       });
     });
 
     this.et.on("error", e => {
       if (e.errorMessage && e.errorMessage.toString().includes("not running")) {
+        if (this.firstRun) {
+          log.Info("No Connection; Awaiting for user to launch ATS.");
+          this.firstRun = false;
+        } else {
+          log.Debug("No Connection; Awaiting ATS Reconnect.");
+        }
         if (!this.rpc.connected) return;
-        console.log("ATS Not Running, Disconnecting...");
         return this.disconnect();
       }
-      console.error(e);
+      log.Error(e);
       return this.disconnect();
     });
 
@@ -67,14 +89,15 @@ class Client {
   }
 
   disconnect() {
+    log.Warn("RPC Disconnecting...");
     if (!this.rpc.connected) return;
     this.rpc.destroy();
     this.rpc.connected = false;
-    console.log("RPC Disconnected");
+    log.Info("RPC Disconnected");
   }
 
   async update() {
-    console.log("Running Presence Update...");
+    log.Debug("Running Presence Update...");
     if (!this.timeSinceLastUpdate) this.timeSinceLastUpdate = Date.now();
 
     if (!this.rpc.connected) return;
@@ -83,7 +106,7 @@ class Client {
     await this.rpc.setActivity(activity);
     this.updating = false;
     this.timeSinceLastUpdate = Date.now();
-    console.log("Presence Updated.");
+    log.Debug("Presence Updated.");
   }
 
   async build() {
@@ -101,16 +124,17 @@ class Client {
     // Handle Images
     if (data.truck.worldPlacement.x && data.truck.worldPlacement.z) {
       // Fetch the nearest location.
-      const res = await snekfetch.get(this.truckyMapApi
+      const res = await fetch(this.truckyMapApi
         .replace("%game", "ats")
         .replace("%xpos", data.truck.worldPlacement.x)
         .replace("%zpos", data.truck.worldPlacement.z)
       );
-      if (!res.body || !res.body.response) {
+      const body = await res.json();
+      if (!body || !body.response) {
         activity.largeImageKey = "truck";
         activity.largeImageText = "Unable To Fetch Location";
       } else {
-        const locData = res.body.response;
+        const locData = body.response;
         if (locData.distance > 0) {
           activity.largeImageKey = locData.poi.country.toLowerCase().replace(/ /g, "_");
           activity.largeImageText = "Roaming in " + locData.poi.country;

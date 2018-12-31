@@ -4,7 +4,9 @@
   "description": "Provides Rich Presence for American Trucking Simulator",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node src/compile.js",
+    "finalize": "create-nodew-exe release/ATSRichPresenceCMD.exe release/ATSRichPresence.exe"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,13 @@
   "dependencies": {
     "discord-rpc": "^3.0.1",
     "etcars-node-client": "^1.0.4",
-    "ora": "^3.0.0",
-    "snekfetch": "^4.0.4"
+    "minimist": "^1.2.0",
+    "node-fetch": "^2.3.0",
+    "node-file-logger": "^0.9.5",
+    "ora": "^3.0.0"
+  },
+  "devDependencies": {
+    "create-nodew-exe": "^1.0.4",
+    "nexe": "^2.0.0-rc.34"
   }
 }
