@@ -1,0 +1,1 @@
+ats-rich-presence
