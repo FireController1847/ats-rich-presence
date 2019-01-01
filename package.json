@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node src/compile.js",
+    "compile": "node src/compile.js",
     "finalize": "create-nodew-exe release/ATSRichPresenceCMD.exe release/ATSRichPresence.exe"
   },
   "repository": {
@@ -23,8 +23,7 @@
     "etcars-node-client": "^1.0.4",
     "minimist": "^1.2.0",
     "node-fetch": "^2.3.0",
-    "node-file-logger": "FireController1847/node-file-logger#patch-1",
-    "ora": "^3.0.0"
+    "node-file-logger": "FireController1847/node-file-logger#patch-1"
   },
   "devDependencies": {
     "create-nodew-exe": "^1.0.4",
