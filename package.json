@@ -23,7 +23,7 @@
     "etcars-node-client": "^1.0.4",
     "minimist": "^1.2.0",
     "node-fetch": "^2.3.0",
-    "node-file-logger": "^0.9.5",
+    "node-file-logger": "FireController1847/node-file-logger#patch-1",
     "ora": "^3.0.0"
   },
   "devDependencies": {

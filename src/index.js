@@ -1,16 +1,20 @@
 const DiscordRPC = require("discord-rpc");
 const ETCarsClient = require("etcars-node-client");
 const fetch = require("node-fetch");
-const log = require("node-file-logger");
 const argv = require("minimist")(process.argv.slice(2));
 const fs = require("fs");
-if (!fs.existsSync("./logs/")) fs.mkdirSync("./logs/");
-if (fs.existsSync("./logs/Output.log")) fs.writeFileSync("./logs/Output.log", "");
+
+const path = require("path");
+const log = require("node-file-logger");
+const logdir = path.join((process.env.APPDATA || (process.platform == "darwin" ? "/Library/Preferences" : "/var/local")), `${path.sep}ATSRP${path.sep}`);
+const logfile = path.join(logdir, "log.txt");
+if (!fs.existsSync(logfile)) fs.mkdirSync(logdir);
+fs.writeFileSync(logfile, ""); // Wipe the file every run.
 log.SetUserOptions({
-  folderPath: "./logs/",
+  folderPath: logdir,
   dateBasedFileNaming: false,
-  fileName: "Output",
-  fileNameExtension: ".log",
+  fileName: "log",
+  fileNameExtension: ".txt",
   dateFormat: "YYYY/MM/DD",
   timeFormat: "h:mm:ss A",
   logLevel: (argv.D || argv.debug ? "debug" : "prod"),
