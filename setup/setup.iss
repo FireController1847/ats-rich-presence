@@ -1,5 +1,5 @@
 #define MyAppName "ATS Rich Presence"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "FireController#1847"
 #define MyAppPublisherURL "https://github.com/FireController1847/ats-rich-presence"
 #define MyAppExeName "ATSRichPresence.exe"
