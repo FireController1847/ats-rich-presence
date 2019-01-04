@@ -41,23 +41,23 @@ These are the different cities that are currently added and/or not added to the 
 - ❌ Tonopah
 - ❌ Winnemucca
 
-### ❌ Arizona
-- ❌ Camp Verde
-- ❌ Clifton
-- ❌ Ehrenberg
+### ✔ Arizona
+- ✔ Camp Verde
+- ✔ Clifton
+- ✔ Ehrenberg
 - ✔ Flagstaff
-- ❌ Grand Canyon Village
-- ❌ Holbrook
-- ❌ Kayenta
-- ❌ Kingman
-- ❌ Nogales
-- ❌ Page
+- ✔ Grand Canyon Village
+- ✔ Holbrook
+- ✔ Kayenta
+- ✔ Kingman
+- ✔ Nogales
+- ✔ Page
 - ✔ Phoenix
-- ❌ San Simon
-- ❌ Show Low
-- ❌ Sierra Vista
+- ✔ San Simon
+- ✔ Show Low
+- ✔ Sierra Vista
 - ✔ Tucson
-- ❌ Yuma
+- ✔ Yuma
 
 ### ❌ New Mexico
 - ❌ Albuquerque
