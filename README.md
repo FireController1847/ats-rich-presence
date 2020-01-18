@@ -77,21 +77,21 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Socorro
 - ✔ Tucumcari
 
-### ❌ Oregon
-- ❌ Astoria
-- ❌ Bend
-- ❌ Burns
-- ❌ Coos Bay
-- ❌ Eugene
-- ❌ Klamath Falls
-- ❌ Lakeview
-- ❌ Medford
-- ❌ Newport
-- ❌ Ontario
-- ❌ Pendleton
-- ❌ Portland
-- ❌ Salem
-- ❌ The Dalles
+### ✔ Oregon
+- ✔ Astoria
+- ✔ Bend
+- ✔ Burns
+- ✔ Coos Bay
+- ✔ Eugene
+- ✔ Klamath Falls
+- ✔ Lakeview
+- ✔ Medford
+- ✔ Newport
+- ✔ Ontario
+- ✔ Pendleton
+- ✔ Portland
+- ✔ Salem
+- ✔ The Dalles
 
 ### ❌ Utah
 - ❌ Cedar City
