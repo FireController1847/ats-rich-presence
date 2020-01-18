@@ -61,21 +61,21 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Tonopah
 - ✔ Winnemucca
 
-### ❌ New Mexico
-- ❌ Alamogordo
-- ❌ Albuquerque
-- ❌ Artesia
-- ❌ Carlsbad
-- ❌ Clovis
-- ❌ Farmington
-- ❌ Gallup
-- ❌ Hobbs
-- ❌ Las Cruces
-- ❌ Raton
-- ❌ Roswell
-- ❌ Santa Fe
-- ❌ Socorro
-- ❌ Tucumcari
+### ✔ New Mexico
+- ✔ Alamogordo
+- ✔ Albuquerque
+- ✔ Artesia
+- ✔ Carlsbad
+- ✔ Clovis
+- ✔ Farmington
+- ✔ Gallup
+- ✔ Hobbs
+- ✔ Las Cruces
+- ✔ Raton
+- ✔ Roswell
+- ✔ Santa Fe
+- ✔ Socorro
+- ✔ Tucumcari
 
 ### ❌ Oregon
 - ❌ Astoria
