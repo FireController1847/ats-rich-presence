@@ -93,17 +93,17 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Salem
 - ✔ The Dalles
 
-### ❌ Utah
-- ❌ Cedar City
-- ❌ Logan
-- ❌ Moab
-- ❌ Ogden
-- ❌ Price
-- ❌ Provo
-- ❌ Salina
-- ❌ Salt Lake City
-- ❌ St. George
-- ❌ Vernal
+### ✔ Utah
+- ✔ Cedar City
+- ✔ Logan
+- ✔ Moab
+- ✔ Ogden
+- ✔ Price
+- ✔ Provo
+- ✔ Salina
+- ✔ Salt Lake City
+- ✔ St. George
+- ✔ Vernal
 
 ### ❌ Washington
 - ❌ Aberdeen
