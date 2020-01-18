@@ -49,17 +49,17 @@ These are the different cities that are currently added and/or not added to the 
 ### ❌ Idaho
 - TBA
 
-### ❌ Nevada
+### ✔ Nevada
 - ✔ Carson City
 - ✔ Elko
-- ❌ Ely
-- ❌ Jackpot
+- ✔ Ely
+- ✔ Jackpot
 - ✔ Las Vegas
-- ❌ Pioche
-- ❌ Primm
+- ✔ Pioche
+- ✔ Primm
 - ✔ Reno
-- ❌ Tonopah
-- ❌ Winnemucca
+- ✔ Tonopah
+- ✔ Winnemucca
 
 ### ❌ New Mexico
 - ❌ Alamogordo
