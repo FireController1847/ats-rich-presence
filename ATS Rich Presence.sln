@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATS Rich Presence", "ATS Rich Presence\ATS Rich Presence.csproj", "{201F8854-E67C-479A-8E3E-95FF38407E10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "etcars-dotnet-sdk", "etcars-dotnet-sdk\etcars-dotnet-sdk.csproj", "{95D2DB72-D161-47A2-B687-1663E696D125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{201F8854-E67C-479A-8E3E-95FF38407E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201F8854-E67C-479A-8E3E-95FF38407E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201F8854-E67C-479A-8E3E-95FF38407E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201F8854-E67C-479A-8E3E-95FF38407E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D2DB72-D161-47A2-B687-1663E696D125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D2DB72-D161-47A2-B687-1663E696D125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D2DB72-D161-47A2-B687-1663E696D125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D2DB72-D161-47A2-B687-1663E696D125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89910603-C179-42CD-A8DE-31893244B48E}
+	EndGlobalSection
+EndGlobal

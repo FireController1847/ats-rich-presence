@@ -1,0 +1,3 @@
+[submodule "etcars-dotnet-sdk"]
+	path = etcars-dotnet-sdk
+	url = https://github.com/shardick/etcars-dotnet-sdk

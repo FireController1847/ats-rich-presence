@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ATS_Rich_Presence</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DiscordRichPresence.Core" Version="1.0.121" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\etcars-dotnet-sdk\etcars-dotnet-sdk.csproj" />
+  </ItemGroup>
+
+</Project>
