@@ -1,10 +1,27 @@
 # ATS Rich Presence
-
-Currently there is no EXE or anything you can run, so you'll need to install Node.js 10+ and then run it from here.
-To launch, run `node src/index.js` after running `npm install` (YARN PREFERRED `yarn install`).
+Download the latest release [on the releases page](https://github.com/FireController1847/ats-rich-presence/releases).
 
 ## Cities Available
 These are the different cities that are currently added and/or not added to the application (basically, the ones with the checkmark will show up on RP when you visit them).
+
+### ✔ Arizona
+- ✔ Camp Verde
+- ✔ Clifton
+- ✔ Ehrenberg
+- ✔ Flagstaff
+- ✔ Grand Canyon Village
+- ✔ Holbrook
+- ✔ Kayenta
+- ✔ Kingman
+- ✔ Nogales
+- ✔ Page
+- ✔ Phoenix
+- ✔ San Simon
+- ✔ Show Low
+- ✔ Sierra Vista
+- ✔ Tucson
+- ✔ Yuma
+
 ### ✔ California
 - ✔ Bakersfield
 - ✔ Barstow
@@ -29,7 +46,10 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Truckee
 - ✔ Ukiah
 
-### ❌ Navada
+### ❌ Idaho
+- TBA
+
+### ❌ Nevada
 - ✔ Carson City
 - ✔ Elko
 - ❌ Ely
@@ -41,27 +61,9 @@ These are the different cities that are currently added and/or not added to the 
 - ❌ Tonopah
 - ❌ Winnemucca
 
-### ✔ Arizona
-- ✔ Camp Verde
-- ✔ Clifton
-- ✔ Ehrenberg
-- ✔ Flagstaff
-- ✔ Grand Canyon Village
-- ✔ Holbrook
-- ✔ Kayenta
-- ✔ Kingman
-- ✔ Nogales
-- ✔ Page
-- ✔ Phoenix
-- ✔ San Simon
-- ✔ Show Low
-- ✔ Sierra Vista
-- ✔ Tucson
-- ✔ Yuma
-
 ### ❌ New Mexico
+- ❌ Alamogordo
 - ❌ Albuquerque
-- ❌ Almogordo
 - ❌ Artesia
 - ❌ Carlsbad
 - ❌ Clovis
@@ -90,3 +92,33 @@ These are the different cities that are currently added and/or not added to the 
 - ❌ Portland
 - ❌ Salem
 - ❌ The Dalles
+
+### ❌ Utah
+- ❌ Cedar City
+- ❌ Logan
+- ❌ Moab
+- ❌ Ogden
+- ❌ Price
+- ❌ Provo
+- ❌ Salina
+- ❌ Salt Lake City
+- ❌ St. George
+- ❌ Vernal
+
+### ❌ Washington
+- ❌ Aberdeen
+- ❌ Bellingham
+- ❌ Colville
+- ❌ Everett
+- ❌ Grand Coulee
+- ❌ Kennewick
+- ❌ Longview
+- ❌ Olympia
+- ❌ Omak
+- ❌ Port Angeles
+- ❌ Seattle
+- ❌ Spokane
+- ❌ Tacoma
+- ❌ Vancouver
+- ❌ Wenatchee
+- ❌ Yakima
