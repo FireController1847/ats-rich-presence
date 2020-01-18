@@ -46,9 +46,6 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Truckee
 - ✔ Ukiah
 
-### ❌ Idaho
-- TBA
-
 ### ✔ Nevada
 - ✔ Carson City
 - ✔ Elko
@@ -105,20 +102,20 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ St. George
 - ✔ Vernal
 
-### ❌ Washington
-- ❌ Aberdeen
-- ❌ Bellingham
-- ❌ Colville
-- ❌ Everett
-- ❌ Grand Coulee
-- ❌ Kennewick
-- ❌ Longview
-- ❌ Olympia
-- ❌ Omak
-- ❌ Port Angeles
-- ❌ Seattle
-- ❌ Spokane
-- ❌ Tacoma
-- ❌ Vancouver
-- ❌ Wenatchee
-- ❌ Yakima
+### ✔ Washington
+- ✔ Aberdeen
+- ✔ Bellingham
+- ✔ Colville
+- ✔ Everett
+- ✔ Grand Coulee
+- ✔ Kennewick
+- ✔ Longview
+- ✔ Olympia
+- ✔ Omak
+- ✔ Port Angeles
+- ✔ Seattle
+- ✔ Spokane
+- ✔ Tacoma
+- ✔ Vancouver
+- ✔ Wenatchee
+- ✔ Yakima
