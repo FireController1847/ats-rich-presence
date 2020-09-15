@@ -46,6 +46,31 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Truckee
 - ✔ Ukiah
 
+### ❌ Colorado
+- ❌ Colorado Springs
+- ❌ Craig
+- ❌ Denver
+- ❌ Durango
+- ❌ Grand Junction
+- ❌ Lamar
+- ❌ Pueblo
+- ❌ Rangely
+- ❌ Steamboat Springs
+- ❌ Trinidad
+
+### ❌ Idaho
+- ❌ Boise
+- ❌ Coeur d'Alene
+- ❌ Grangeville
+- ❌ Idaho Falls
+- ❌ Ketchum
+- ❌ Lewiston
+- ❌ Nampa
+- ❌ Pocatello
+- ❌ Salmon
+- ❌ Sandpoint
+- ❌ Twin Falls
+
 ### ✔ Nevada
 - ✔ Carson City
 - ✔ Elko
