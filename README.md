@@ -144,3 +144,15 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Vancouver
 - ✔ Wenatchee
 - ✔ Yakima
+
+### ❌ Wyoming
+- ❌ Casper
+- ❌ Cheyenne
+- ❌ Evanston
+- ❌ Gillette
+- ❌ Jackson
+- ❌ Laramie
+- ❌ Rawlins
+- ❌ Riverton
+- ❌ Rock Springs
+- ❌ Sheridan
