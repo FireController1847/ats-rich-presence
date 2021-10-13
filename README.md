@@ -61,18 +61,18 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Steamboat Springs
 - ✔ Sterling
 
-### ❌ Idaho
-- ❌ Boise
-- ❌ Coeur d'Alene
-- ❌ Grangeville
-- ❌ Idaho Falls
-- ❌ Ketchum
-- ❌ Lewiston
-- ❌ Nampa
-- ❌ Pocatello
-- ❌ Salmon
-- ❌ Sandpoint
-- ❌ Twin Falls
+### ✔ Idaho
+- ✔ Boise
+- ✔ Coeur d'Alene
+- ✔ Grangeville
+- ✔ Idaho Falls
+- ✔ Ketchum
+- ✔ Lewiston
+- ✔ Nampa
+- ✔ Pocatello
+- ✔ Salmon
+- ✔ Sandpoint
+- ✔ Twin Falls
 
 ### ✔ Nevada
 - ✔ Carson City
