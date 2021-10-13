@@ -22,14 +22,14 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Tucson
 - ✔ Yuma
 
-### ❌ California
+### ✔ California
 - ✔ Bakersfield
 - ✔ Barstow
 - ✔ Carlsbad
 - ✔ El Centro
 - ✔ Eureka
 - ✔ Fresno
-- ❌ Hilt
+- ✔ Hilt
 - ✔ Huron
 - ✔ Los Angeles
 - ✔ Oakdale
@@ -46,20 +46,20 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Truckee
 - ✔ Ukiah
 
-### ❌ Colorado
-- ❌ Alamosa
-- ❌ Burlington
-- ❌ Colorado Springs
-- ❌ Denver
-- ❌ Durango
-- ❌ Fort Collins
-- ❌ Grand Junction
-- ❌ Lamar
-- ❌ Montrose
-- ❌ Pueblo
-- ❌ Rangely
-- ❌ Steamboat Springs
-- ❌ Sterling
+### ✔ Colorado
+- ✔ Alamosa
+- ✔ Burlington
+- ✔ Colorado Springs
+- ✔ Denver
+- ✔ Durango
+- ✔ Fort Collins
+- ✔ Grand Junction
+- ✔ Lamar
+- ✔ Montrose
+- ✔ Pueblo
+- ✔ Rangely
+- ✔ Steamboat Springs
+- ✔ Sterling
 
 ### ❌ Idaho
 - ❌ Boise
