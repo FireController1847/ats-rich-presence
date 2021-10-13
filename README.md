@@ -22,14 +22,14 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Tucson
 - ✔ Yuma
 
-### ✔ California
+### ❌ California
 - ✔ Bakersfield
 - ✔ Barstow
 - ✔ Carlsbad
 - ✔ El Centro
 - ✔ Eureka
 - ✔ Fresno
-- ✔ Hornbrook
+- ❌ Hilt
 - ✔ Huron
 - ✔ Los Angeles
 - ✔ Oakdale
@@ -47,16 +47,19 @@ These are the different cities that are currently added and/or not added to the 
 - ✔ Ukiah
 
 ### ❌ Colorado
+- ❌ Alamosa
+- ❌ Burlington
 - ❌ Colorado Springs
-- ❌ Craig
 - ❌ Denver
 - ❌ Durango
+- ❌ Fort Collins
 - ❌ Grand Junction
 - ❌ Lamar
+- ❌ Montrose
 - ❌ Pueblo
 - ❌ Rangely
 - ❌ Steamboat Springs
-- ❌ Trinidad
+- ❌ Sterling
 
 ### ❌ Idaho
 - ❌ Boise
