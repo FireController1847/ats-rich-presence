@@ -21,7 +21,7 @@
   "dependencies": {
     "discord-rpc": "^3.0.1",
     "etcars-node-client": "^1.0.4",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "node-fetch": "^2.6.1",
     "node-file-logger": "FireController1847/node-file-logger#patch-1"
   },
